@@ -26,8 +26,10 @@ begin
 
    -- TEST 3
    Put_Line ("TEST 3 - Truncated Binary Cutoff Logic (Upper Bound)");
-   Put_Line ("  3.1 Assert N=46, M=10 correctly encodes as 11110110 (using 4 bits for remainder)");
-   Assert (Encode_Golomb (46, 10) = "11110110", "Encoding failed for upper limit remainder");
+   Put_Line ("  3.1 Assert N=46, M=10 correctly encodes as 111101100 (using 4 bits for remainder)");
+   Assert (Encode_Golomb (46, 10) = "111101100", "Encoding failed for upper limit remainder");
+   Put_Line ("  3.2 Assert bits 111101100 decode exactly to N=46 with M=10");
+   Assert (Decode_Golomb_Exact ("111101100", 10) = 46, "Decoding failed for upper limit remainder");
    Put_Line ("      PASS");
 
    -- TEST 4
